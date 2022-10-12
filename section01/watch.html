@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+</head>
+<body>
+
+    <!-- 仮想DOM -->
+    <div id="app">
+
+    </div>
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data(){
+                return {
+                    books:[
+                        {
+                            id:1,
+                            title:'タイトル1',
+                            author:"著者名1",
+                            url:'google.com'
+                        },
+                        {
+                            id:2,
+                            title:'タイトル2',
+                            author:"著者名2",
+                            url:'google.com'
+                        },
+                        {
+                            id:3,
+                            title:'タイトル3',
+                            author:"著者名3",
+                            url:'google.com'
+                        },
+                    ]
+                }
+            },
+            watch:{
+                // コールバックは監視しているオブジェクトのプロパティが（そのネストの深さに関係なく）変更されると呼ばれる
+                books:{   
+                    handler(){
+                        console.log('変更されました')
+                    },
+                    deep: true
+                }
+            }
+        })
+    </script>
+</body>
+</html>
