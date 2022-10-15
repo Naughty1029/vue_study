@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 仮想DOM -->
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script>
+        //グローバルコンポーネント
+        Vue.component("my-component",{
+            template:`
+            <div>
+                aaa<br>
+                bbb
+                <div v-show="isShow">表示</div>
+            </div>`,
+            data(){
+                return{
+                    isShow:false
+                }
+            }
+        });
+        //Vueクラス→インスタンス化
+        let app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                }
+            }
+        })
+    </script>
+</body>
+</html>
